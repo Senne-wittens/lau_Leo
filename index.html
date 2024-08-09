@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             position: relative;
-            overflow: hidden; /* Verberg scrollbalken */
+            overflow-x: hidden; /* Verberg horizontale scrollbalken */
         }
 
         .container {
@@ -107,7 +107,7 @@
             height: 10px;
             background-color: #ff4500;
             opacity: 0.8;
-            animation: confettiFall 2.5s linear;
+            animation: confettiFall 2.5s linear forwards;
             z-index: 0;
         }
 
@@ -215,7 +215,7 @@
     <div class="confetti" style="left: 80%; top: -40%; animation-delay: 0.17s;"></div>
     <div class="confetti" style="left: 90%; top: -50%; animation-delay: 0.18s;"></div>
     <div class="confetti" style="left: 100%; top: -60%; animation-delay: 0.19s;"></div>
-    <!-- More confetti elements as needed -->
+    <!-- Additional confetti elements if needed -->
 
     <!-- Waves -->
     <div class="waves"></div>
