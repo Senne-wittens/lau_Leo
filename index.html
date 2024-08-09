@@ -107,24 +107,12 @@
         }
 
         .wave1 {
-            animation: waveMove1 6s linear infinite;
-            bottom: 0; /* Plaats de eerste golf precies aan de onderkant */
+            top: 0; /* Zet de eerste golf bovenaan */
         }
 
         .wave2 {
-            animation: waveMove2 8s linear infinite;
+            top: 50px; /* Zet de tweede golf iets lager voor een diepte-effect */
             opacity: 0.7; /* Maak deze golf iets minder opvallend */
-            bottom: 20px; /* Plaats de tweede golf iets hoger om een diepte-effect te creëren */
-        }
-
-        @keyframes waveMove1 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        @keyframes waveMove2 {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(0); }
         }
 
         .confetti {
@@ -225,7 +213,6 @@
     <div class="confetti" style="left: 80%; top: -40%; animation-delay: 0.17s;"></div>
     <div class="confetti" style="left: 90%; top: -50%; animation-delay: 0.18s;"></div>
     <div class="confetti" style="left: 100%; top: -60%; animation-delay: 0.19s;"></div>
-    <!-- Additional confetti elements if needed -->
 
     <!-- Waves -->
     <div class="waves">
