@@ -117,30 +117,6 @@
             0% { transform: scale(0.5); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-
-        .confetti {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: #ff4500;
-            animation: fall 4s infinite;
-            opacity: 0.7;
-        }
-
-        .confetti:nth-child(2n) {
-            background-color: #ff6347;
-            animation-duration: 6s;
-        }
-
-        .confetti:nth-child(3n) {
-            background-color: #ffd700;
-            animation-duration: 5s;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-200px) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
-        }
     </style>
 </head>
 <body>
@@ -165,14 +141,5 @@
         </div>
     </div>
     <div class="waves"></div>
-    <!-- Confetti -->
-    <div class="confetti" style="left: 20%;"></div>
-    <div class="confetti" style="left: 50%;"></div>
-    <div class="confetti" style="left: 80%;"></div>
-    <div class="confetti" style="left: 30%;"></div>
-    <div class="confetti" style="left: 70%;"></div>
-    <div class="confetti" style="left: 90%;"></div>
-    <div class="confetti" style="left: 40%;"></div>
-    <div class="confetti" style="left: 60%;"></div>
 </body>
 </html>
