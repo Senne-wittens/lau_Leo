@@ -7,149 +7,175 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            background: linear-gradient(to bottom, #f7c6c7, #ff7f50);
             color: #333;
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow-y: auto;
+            overflow-y: auto; /* Zorgt ervoor dat de pagina verticaal kan scrollen */
+            position: relative;
+            height: 100vh;
+            overflow: hidden; /* Voorkomt dat scrollbalken verschijnen door confetti */
         }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border-radius: 20px;
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 2;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out;
         }
+
         h1 {
             font-size: 4em;
-            color: #ff6f61;
+            color: #ff4500;
             margin-bottom: 20px;
-            text-shadow: 3px 3px #ffb6b9;
-            animation: popIn 1s ease-out;
+            text-shadow: 3px 3px #ffa07a;
+            animation: bounceIn 1s ease-out;
         }
+
         p {
             font-size: 1.5em;
             color: #666;
             line-height: 1.8;
             animation: fadeIn 2s ease-in-out;
         }
+
         .celebration {
             font-size: 3em;
-            color: #ff6f61;
+            color: #ff4500;
             margin: 30px 0;
-            text-shadow: 3px 3px #ffb6b9;
-            animation: popIn 1s ease-out;
+            text-shadow: 3px 3px #ffa07a;
+            animation: bounceIn 1s ease-out;
         }
+
         .footer {
             margin-top: 30px;
             font-size: 1.2em;
             color: #999;
         }
+
         .balloons {
             margin: 20px 0;
             position: relative;
             z-index: 2;
-            animation: bounce 3s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
+
         .balloons img {
             width: 60px;
-            margin: 0 10px;
             animation: float 3s ease-in-out infinite;
         }
+
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+            50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+
         .sun {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 120px;
-            height: 120px;
+            top: 10%;
+            left: 10%;
+            width: 150px; /* Vergrote zon */
+            height: 150px; /* Vergrote zon */
             background-color: #ffdf64;
             border-radius: 50%;
-            box-shadow: 0 0 40px rgba(255, 223, 100, 0.8);
-            animation: pulse 6s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(255, 223, 100, 0.8); /* Sterkere gloed */
+            animation: spin 5s linear infinite;
+            z-index: 1;
         }
-        .sun-rays {
+
+        .waves {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: conic-gradient(from 45deg, #ffdf64 25%, transparent 25%, transparent 50%, #ffdf64 50%, #ffdf64 75%, transparent 75%);
-            animation: rotate 6s linear infinite, pulse 6s ease-in-out infinite;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('https://www.svgrepo.com/show/193643/wave-sea.svg') repeat-x;
+            background-size: cover;
+            animation: waveMove 4s linear infinite;
         }
-        @keyframes rotate {
+
+        @keyframes spin {
             100% { transform: rotate(360deg); }
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+        @keyframes waveMove {
+            100% { transform: translateX(-100%); }
         }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
+
         .confetti {
             position: absolute;
             width: 15px;
             height: 15px;
-            background-color: #ff6f61;
-            animation: fall 4s;
+            background-color: #ff4500;
+            animation: fall 4s infinite;
             opacity: 0.7;
         }
+
         .confetti:nth-child(2n) {
-            background-color: #ffb6b9;
-            animation-duration: 6s;
-        }
-        .confetti:nth-child(3n) {
-            background-color: #ffdf64;
+            background-color: #ff6347;
             animation-duration: 5s;
         }
+
+        .confetti:nth-child(3n) {
+            background-color: #ffd700;
+            animation-duration: 6s;
+        }
+
         @keyframes fall {
             0% { transform: translateY(-200px) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p, .celebration {
+                font-size: 1.2em;
+            }
+
+            .container {
+                margin: 20px;
+                padding: 10px;
+            }
+
+            .sun {
+                width: 100px;
+                height: 100px;
+                top: 5%;
+                left: 5%;
+            }
+
+            .balloons img {
+                width: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="sun"></div>
-    <div class="sun-rays"></div>
     <div class="container">
-        <!-- Confetti -->
-    <div class="confetti" style="left: 20%;"></div>
-    <div class="confetti" style="left: 50%;"></div>
-    <div class="confetti" style="left: 80%;"></div>
-    <div class="confetti" style="left: 30%;"></div>
-    <div class="confetti" style="left: 70%;"></div>
-    <div class="confetti" style="left: 90%;"></div>
-    <div class="confetti" style="left: 40%;"></div>
-    <div class="confetti" style="left: 60%;"></div>
-    <div class="confetti" style="left: 20%;"></div>
-    <div class="confetti" style="left: 50%;"></div>
-    <div class="confetti" style="left: 80%;"></div>
-    <div class="confetti" style="left: 30%;"></div>
-    <div class="confetti" style="left: 70%;"></div>
-    <div class="confetti" style="left: 90%;"></div>
-    <div class="confetti" style="left: 40%;"></div>
-    <div class="confetti" style="left: 60%;"></div>
         <h1>Hoera voor Lau & Leo!</h1>
         <p>Lieve Lau en Leo,</p>
         <p>Vandaag vieren we jullie beide verjaardagen onder de warme zon van de zomer! 🌞</p>
@@ -158,15 +184,27 @@
             <p><strong>Gefeliciteerd Lau & Leo!</strong></p>
         </div>
         <div class="balloons">
-            <img src="ballon_icon.png" alt="balloon">
-            <img src="ballon_icon.png" alt="balloon">
-            <img src="ballon_icon.png" alt="balloon">
+            <img src="https://www.svgrepo.com/show/303227/balloon.svg" alt="balloon">
+            <img src="https://www.svgrepo.com/show/303227/balloon.svg" alt="balloon">
+            <img src="https://www.svgrepo.com/show/303227/balloon.svg" alt="balloon">
         </div>
         <p>Geniet van deze prachtige zomerdag, samen met iedereen die jullie liefheeft. Jullie verdienen het allerbeste!</p>
         <div class="footer">
-            <p>Met zonnige groeten,</p>
-            <p>Senne</p>
+            <p>Met liefde en zonnige groeten,</p>
+            <p>[Jouw naam]</p>
         </div>
     </div>
+    <div class="waves"></div>
+
+    <!-- Confetti elements -->
+    <div class="confetti" style="left: 10%; top: -10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 30%; top: -20%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 50%; top: -30%; animation-delay: 2s;"></div>
+    <div class="confetti" style="left: 70%; top: -40%; animation-delay: 3s;"></div>
+    <div class="confetti" style="left: 90%; top: -50%; animation-delay: 4s;"></div>
+    <div class="confetti" style="left: 25%; top: -15%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 45%; top: -25%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 65%; top: -35%; animation-delay: 2s;"></div>
+    <div class="confetti" style="left: 85%; top: -45%; animation-delay: 3s;"></div>
 </body>
 </html>
