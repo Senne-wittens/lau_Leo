@@ -103,16 +103,18 @@
         .waves svg {
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: auto; /* Zorg ervoor dat de hoogte automatisch is voor behoud van verhoudingen */
         }
 
         .wave1 {
             animation: waveMove1 6s linear infinite;
+            bottom: 0; /* Plaats de eerste golf precies aan de onderkant */
         }
 
         .wave2 {
             animation: waveMove2 8s linear infinite;
             opacity: 0.7; /* Maak deze golf iets minder opvallend */
+            bottom: 20px; /* Plaats de tweede golf iets hoger om een diepte-effect te creëren */
         }
 
         @keyframes waveMove1 {
