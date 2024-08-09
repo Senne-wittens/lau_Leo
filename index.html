@@ -94,11 +94,16 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 150px;
-            background: linear-gradient(to right, rgba(0, 0, 255, 0.5) 50%, rgba(0, 0, 255, 0) 100%);
+            height: 200px;
+            background: linear-gradient(to right, #006994 0%, #004c6d 100%);
             background-size: 200% 100%;
-            animation: waveMove 5s linear infinite;
+            animation: waveMove 6s cubic-bezier(.5,.05,.5,.95) infinite;
             z-index: 0;
+        }
+
+        @keyframes waveMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
         }
 
         .confetti {
@@ -117,11 +122,6 @@
 
         .confetti:nth-child(3n) {
             background-color: #ffd700;
-        }
-
-        @keyframes waveMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 0; }
         }
 
         @keyframes fadeIn {
