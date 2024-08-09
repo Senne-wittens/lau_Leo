@@ -96,24 +96,23 @@
             left: 0;
             width: 100%;
             height: 150px;
-            overflow: hidden; /* Verberg het gedeelte van de golf dat buiten het zichtbare gebied valt */
+            overflow: hidden; /* Zorg ervoor dat de golven niet uit de container komen */
             z-index: 0;
         }
 
         .waves svg {
             position: absolute;
             width: 100%;
-            height: auto;
-            opacity: 0.3; /* Doorschijnend */
+            height: 100%;
         }
 
         .wave1 {
-            animation: waveMove1 10s linear infinite;
+            animation: waveMove1 6s linear infinite;
         }
 
         .wave2 {
-            bottom: 0; /* Zorg ervoor dat deze onder de eerste golf zit */
             animation: waveMove2 8s linear infinite;
+            opacity: 0.7; /* Maak deze golf iets minder opvallend */
         }
 
         @keyframes waveMove1 {
@@ -122,18 +121,26 @@
         }
 
         @keyframes waveMove2 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100%); }
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4500;
+            opacity: 0.8;
+            animation: confettiFall 2.5s linear forwards;
+            z-index: 0;
         }
 
-        @keyframes bounceIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        .confetti:nth-child(2n) {
+            background-color: #ff6347;
+        }
+
+        .confetti:nth-child(3n) {
+            background-color: #ffd700;
         }
 
         @keyframes confettiFall {
@@ -216,14 +223,15 @@
     <div class="confetti" style="left: 80%; top: -40%; animation-delay: 0.17s;"></div>
     <div class="confetti" style="left: 90%; top: -50%; animation-delay: 0.18s;"></div>
     <div class="confetti" style="left: 100%; top: -60%; animation-delay: 0.19s;"></div>
+    <!-- Additional confetti elements if needed -->
 
     <!-- Waves -->
     <div class="waves">
         <svg class="wave1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#0099ff" fill-opacity="0.3" d="M0,192L80,170.7C160,149,320,107,480,122.7C640,139,800,213,960,250.7C1120,288,1280,288,1360,288L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            <path fill="#0099ff" fill-opacity="0.6" d="M0,192L80,170.7C160,149,320,107,480,122.7C640,139,800,213,960,250.7C1120,288,1280,288,1360,288L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>
         <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#0099ff" fill-opacity="1" d="M0,128L80,133.3C160,139,320,149,480,128C640,107,800,53,960,48C1120,43,1280,85,1360,106.7L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            <path fill="#0099ff" fill-opacity="0.6" d="M0,128L80,133.3C160,139,320,149,480,128C640,107,800,53,960,48C1120,43,1280,85,1360,106.7L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>
     </div>
 </body>
