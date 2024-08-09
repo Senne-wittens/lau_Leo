@@ -14,7 +14,7 @@
             padding: 0;
             position: relative;
             overflow-x: hidden; /* Voorkomt horizontaal scrollen */
-            overflow-y: auto; /* Zorgt ervoor dat de pagina verticaal kan scrollen */
+            overflow-y: hidden; /* Voorkomt verticaal scrollen, confetti valt over de volledige viewport */
         }
 
         .container {
@@ -109,7 +109,7 @@
             width: 10px;
             height: 10px;
             background-color: #ff4500;
-            animation: confettiFall 4s linear infinite;
+            animation: confettiFall 6s linear;
             opacity: 0.8;
             z-index: 0;
         }
@@ -221,6 +221,15 @@
     <div class="confetti" style="left: 70%; top: -35%; animation-delay: 3.2s;"></div>
     <div class="confetti" style="left: 80%; top: -45%; animation-delay: 3.4s;"></div>
     <div class="confetti" style="left: 90%; top: -55%; animation-delay: 3.6s;"></div>
+    <div class="confetti" style="left: 50%; top: -10%; animation-delay: 4s;"></div>
+    <div class="confetti" style="left: 70%; top: -20%; animation-delay: 4.2s;"></div>
+    <div class="confetti" style="left: 90%; top: -30%; animation-delay: 4.4s;"></div>
+    <div class="confetti" style="left: 20%; top: -40%; animation-delay: 4.6s;"></div>
+    <div class="confetti" style="left: 40%; top: -50%; animation-delay: 4.8s;"></div>
+    <div class="confetti" style="left: 60%; top: -60%; animation-delay: 5s;"></div>
+    <div class="confetti" style="left: 80%; top: -70%; animation-delay: 5.2s;"></div>
+    <div class="confetti" style="left: 10%; top: -80%; animation-delay: 5.4s;"></div>
+    <div class="confetti" style="left: 30%; top: -90%; animation-delay: 5.6s;"></div>
 
     <div class="waves"></div>
 </body>
