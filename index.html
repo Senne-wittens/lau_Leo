@@ -14,6 +14,7 @@
             padding: 0;
             position: relative;
             overflow-x: hidden; /* Verberg horizontale scrollbalken */
+            overflow-y: scroll; /* Zorg ervoor dat de verticale scrollbalk zichtbaar is */
         }
 
         .container {
@@ -89,23 +90,6 @@
             z-index: 1;
         }
 
-        .waves {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(to right, #006994 0%, #004c6d 100%);
-            background-size: 200% 100%;
-            animation: waveMove 6s cubic-bezier(.5,.05,.5,.95) infinite;
-            z-index: 0;
-        }
-
-        @keyframes waveMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 0; }
-        }
-
         .confetti {
             position: absolute;
             width: 10px;
@@ -145,6 +129,23 @@
             }
         }
 
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230099ff" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,122.7C640,139,800,213,960,250.7C1120,288,1280,288,1360,288L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>') repeat-x;
+            background-size: cover;
+            animation: waveMove 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes waveMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 2.5em;
@@ -177,8 +178,8 @@
     <div class="container">
         <h1>Hip Hip Hoera!</h1>
         <p>Beste Lau en Leo,</p>
-        <p>Van harte gefeliciteerd met jullie 22e verjaardag!</p>
-        <p>Vandaag vieren we jullie speciale dag in stijl, met een feestelijke sfeer en veel plezier.</p>
+        <p>Vandaag vieren we jullie beide verjaardagen onder de warme zon van de zomer! 🌞</p>
+        <p>Van harte gefeliciteerd! Moge jullie dag net zo stralend zijn als de zon en gevuld met vreugde, liefde, en onvergetelijke momenten.</p>
         <div class="celebration">
             <p><strong>Gefeliciteerd Lau & Leo!</strong></p>
         </div>
@@ -187,9 +188,8 @@
             <img src="ballon_icon.png" alt="balloon">
             <img src="ballon_icon.png" alt="balloon">
         </div>
-        <p>Geniet van deze mooie dag samen met iedereen die jullie liefheeft. Jullie verdienen een dag vol vreugde en gelach!</p>
+        <p>Geniet van deze prachtige zomerdag, samen met iedereen die jullie liefheeft. Jullie verdienen het allerbeste!</p>
         <div class="footer">
-            <p>Met vriendelijke groet,</p>
             <p>Senne</p>
         </div>
     </div>
@@ -217,7 +217,7 @@
     <div class="confetti" style="left: 100%; top: -60%; animation-delay: 0.19s;"></div>
     <!-- Additional confetti elements if needed -->
 
-    <!-- Waves -->
+    <!-- SVG Waves -->
     <div class="waves"></div>
 </body>
 </html>
